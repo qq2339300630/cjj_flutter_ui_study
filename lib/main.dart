@@ -223,22 +223,37 @@ class ShoppingListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: () {
-        onCartChanged(product, inCart);
-      },
-      leading: CircleAvatar(
-        backgroundColor: _getColor(context),
-        child: Text(product.name[0]),
-      ),
-      title: Text(
-        product.name,
-        style: _getTextStyle(context),
-      ),
-    );
+    return Container(
+        height: 100.0,
+        child: ListTile(
+          onTap: () {
+            onCartChanged(product, inCart);
+          },
+          leading: CircleAvatar(
+            backgroundColor: _getColor(context),
+            child: Text(product.name[0]),
+          ),
+          title: Text(
+            product.name,
+            style: _getTextStyle(context),
+          ),
+        ));
+
+    // return ListTile(
+    //   onTap: () {
+    //     onCartChanged(product, inCart);
+    //   },
+    //   leading: CircleAvatar(
+    //     backgroundColor: _getColor(context),
+    //     child: Text(product.name[0]),
+    //   ),
+    //   title: Text(
+    //     product.name,
+    //     style: _getTextStyle(context),
+    //   ),
+    // );
   }
 }
-
 
 /**
  * todo 简单列表使用
@@ -273,7 +288,11 @@ class _ShoppingListState extends State<ShoppingList> {
       appBar: AppBar(
         title: Text('Shopping List'),
       ),
-      body: ListView(
+      body: GridView.count(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10.0,
+        mainAxisSpacing: 10.0,
+        childAspectRatio: 12 / 1,
         padding: EdgeInsets.symmetric(vertical: 8.0),
         children: widget.produces.map((Product product) {
           return ShoppingListItem(
@@ -286,15 +305,74 @@ class _ShoppingListState extends State<ShoppingList> {
   }
 }
 
+class Myapp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final title = 'Grad List';
+    return new MaterialApp(
+      title: title,
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text(title),
+        ),
+        body: GridView.count(
+          crossAxisCount: 2,
+          children: new List.generate(100, (index) {
+            return new Text(
+              'Item $index',
+              style: Theme.of(context).textTheme.headline1,
+            );
+          }),
+        ),
+      ),
+    );
+  }
+}
+
+// void main() {
+//   runApp(MaterialApp(
+//     title: 'Shopping App',
+//     home: ShoppingList(
+//       produces: <Product>[
+//         Product(name: 'Eggs'),
+//         Product(name: 'Flour'),
+//         Product(name: 'Chocolate chips'),
+//         Product(name: 'tomato'),
+//         Product(name: 'banana'),
+//         Product(name: 'Apple'),
+//       ],
+//     ),
+//   ));
+// }
+
 void main() {
-  runApp(MaterialApp(
-    title: 'Shopping App',
-    home: ShoppingList(
-      produces: <Product>[
-        Product(name: 'Eggs'),
-        Product(name: 'Flour'),
-        Product(name: 'Chocolate chips')
-      ],
-    ),
-  ));
+  runApp(new TabBarDemo());
+}
+
+class TabBarDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+            title: Text('Tabs Demo'),
+          ),
+          body: TabBarView(children: [
+            Icon(Icons.directions_car),
+            Icon(Icons.directions_transit),
+            Icon(Icons.directions_bike),
+          ],),
+        ),
+      ),
+    );
+  }
 }
