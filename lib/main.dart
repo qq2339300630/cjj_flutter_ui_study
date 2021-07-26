@@ -50,7 +50,14 @@
 //   }
 // }
 
+import 'package:cjj_flutter_ui_study/common/theme.dart';
+import 'package:cjj_flutter_ui_study/screens/cart.dart';
+import 'package:cjj_flutter_ui_study/screens/catalog.dart';
+import 'package:cjj_flutter_ui_study/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'models/cart.dart';
+import 'models/cartlog.dart';
 
 /**
  * todo 自定义 appbar
@@ -345,8 +352,47 @@ class Myapp extends StatelessWidget {
 //   ));
 // }
 
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        Provider(create: (context) {
+          return CatalogModel();
+        }),
+        ChangeNotifierProxyProvider<CatalogModel, CartModel>(
+          create: (context) {
+            return CartModel();
+          },
+          update: (context, catalog, cart) {
+            if (cart == null) throw ArgumentError.notNull('cart');
+            cart.catelog = catalog;
+            return cart;
+          },
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Provider Demo',
+        theme: appTheme,
+        initialRoute: '/',
+        routes: {
+           '/':(context) {
+             return MyLogin();
+           },
+           '/catalog':(context){
+             return MyCatelog();
+           },
+          '/cart':(context){
+             return MyCart();
+          }
+        },
+      ),
+    );
+  }
+}
+
 void main() {
-  runApp(new TabBarDemo());
+  runApp(new MyApp());
 }
 
 class TabBarDemo extends StatelessWidget {
@@ -366,11 +412,13 @@ class TabBarDemo extends StatelessWidget {
             ),
             title: Text('Tabs Demo'),
           ),
-          body: TabBarView(children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
-          ],),
+          body: TabBarView(
+            children: [
+              Icon(Icons.directions_car),
+              Icon(Icons.directions_transit),
+              Icon(Icons.directions_bike),
+            ],
+          ),
         ),
       ),
     );
