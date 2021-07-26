@@ -1,5 +1,3 @@
-
-
 // class CounterDisplay extends StatelessWidget {
 //   CounterDisplay({this.count});
 //
@@ -51,7 +49,6 @@
 //     );
 //   }
 // }
-
 
 import 'package:flutter/material.dart';
 
@@ -197,7 +194,6 @@ class _CounterState extends State<Counter> {
   }
 }
 
-
 class Product {
   Product({this.name});
 
@@ -241,25 +237,64 @@ class ShoppingListItem extends StatelessWidget {
       ),
     );
   }
-
 }
 
 
+/**
+ * todo 简单列表使用
+ * */
+class ShoppingList extends StatefulWidget {
+  final List<Product> produces;
+
+  ShoppingList({Key key, this.produces}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _ShoppingListState();
+  }
+}
+
+class _ShoppingListState extends State<ShoppingList> {
+  Set<Product> _shoppingCart = Set<Product>();
+
+  void _handleCartChanged(Product product, bool inCart) {
+    setState(() {
+      if (!inCart) {
+        _shoppingCart.add(product);
+      } else {
+        _shoppingCart.remove(product);
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Shopping List'),
+      ),
+      body: ListView(
+        padding: EdgeInsets.symmetric(vertical: 8.0),
+        children: widget.produces.map((Product product) {
+          return ShoppingListItem(
+              product: product,
+              inCart: _shoppingCart.contains(product),
+              onCartChanged: _handleCartChanged);
+        }).toList(),
+      ),
+    );
+  }
+}
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: ShoppingListItem(
-            product: Product(name: 'CChips'),
-            inCart: false,
-            onCartChanged: (product,inCart){
-              inCart = !inCart;
-            },
-          ),
-        ),
-      ),
+  runApp(MaterialApp(
+    title: 'Shopping App',
+    home: ShoppingList(
+      produces: <Product>[
+        Product(name: 'Eggs'),
+        Product(name: 'Flour'),
+        Product(name: 'Chocolate chips')
+      ],
     ),
-  );
+  ));
 }
