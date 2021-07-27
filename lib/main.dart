@@ -51,6 +51,7 @@
 // }
 
 import 'package:cjj_flutter_ui_study/common/theme.dart';
+import 'package:cjj_flutter_ui_study/providerdemo/model.dart';
 import 'package:cjj_flutter_ui_study/screens/cart.dart';
 import 'package:cjj_flutter_ui_study/screens/catalog.dart';
 import 'package:cjj_flutter_ui_study/screens/login.dart';
@@ -376,14 +377,14 @@ class MyApp extends StatelessWidget {
         theme: appTheme,
         initialRoute: '/',
         routes: {
-           '/':(context) {
-             return MyLogin();
-           },
-           '/catalog':(context){
-             return MyCatelog();
-           },
-          '/cart':(context){
-             return MyCart();
+          '/': (context) {
+            return MyLogin();
+          },
+          '/catalog': (context) {
+            return MyCatelog();
+          },
+          '/cart': (context) {
+            return MyCart();
           }
         },
       ),
@@ -392,7 +393,16 @@ class MyApp extends StatelessWidget {
 }
 
 void main() {
-  runApp(new MyApp());
+  final counter = CounterModel();
+  final textSize = 48;
+
+  runApp(Provider<int>.value(
+    value: textSize,
+    child: ChangeNotifierProvider.value(
+      value: counter,
+      child: ProviderDemo1(),
+    ),
+  ));
 }
 
 class TabBarDemo extends StatelessWidget {
