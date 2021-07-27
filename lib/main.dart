@@ -55,6 +55,7 @@ import 'package:cjj_flutter_ui_study/providerdemo/model.dart';
 import 'package:cjj_flutter_ui_study/screens/cart.dart';
 import 'package:cjj_flutter_ui_study/screens/catalog.dart';
 import 'package:cjj_flutter_ui_study/screens/login.dart';
+import 'package:cjj_flutter_ui_study/ui/lin.dart';
 import 'package:cjj_flutter_ui_study/ui/txt.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -416,7 +417,7 @@ void main() {
         appBar: AppBar(
           title: Text('hello'),
         ),
-        body: MyBorder()),
+        body: MyRow2()),
   ));
 }
 

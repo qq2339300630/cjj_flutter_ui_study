@@ -14,42 +14,42 @@ class MyText extends StatelessWidget {
   }
 }
 
-class MyRow extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "dk",
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('MyRow'),
-          ),
-          body: Container(
-            height: 56.0,
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            decoration: BoxDecoration(color: Colors.blue[500]),
-            child: Row(
-              children: <Widget>[
-                IconButton(onPressed: null, icon: Icon(Icons.menu)),
-                Expanded(
-                    child: Title(
-                        title: "oooooo",
-                        child: Text(
-                          '你好呀',
-                          style:
-                              TextStyle(color: Colors.cyanAccent, fontSize: 40),
-                        ),
-                        color: Colors.red)), //填充可用空间
-                IconButton(
-                  onPressed: null,
-                  icon: Icon(Icons.search),
-                  tooltip: 'Search',
-                )
-              ],
-            ),
-          ),
-        ));
-  }
-}
+// class MyRow extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//         title: "dk",
+//         home: Scaffold(
+//           appBar: AppBar(
+//             title: Text('MyRow'),
+//           ),
+//           body: Container(
+//             height: 56.0,
+//             padding: const EdgeInsets.symmetric(horizontal: 8.0),
+//             decoration: BoxDecoration(color: Colors.blue[500]),
+//             child: Row(
+//               children: <Widget>[
+//                 IconButton(onPressed: null, icon: Icon(Icons.menu)),
+//                 Expanded(
+//                     child: Title(
+//                         title: "oooooo",
+//                         child: Text(
+//                           '你好呀',
+//                           style:
+//                               TextStyle(color: Colors.cyanAccent, fontSize: 40),
+//                         ),
+//                         color: Colors.red)), //填充可用空间
+//                 IconButton(
+//                   onPressed: null,
+//                   icon: Icon(Icons.search),
+//                   tooltip: 'Search',
+//                 )
+//               ],
+//             ),
+//           ),
+//         ));
+//   }
+// }
 
 class MyAppBar extends StatelessWidget {
   MyAppBar({this.title});
