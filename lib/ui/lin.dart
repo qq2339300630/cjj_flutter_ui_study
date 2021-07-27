@@ -47,3 +47,25 @@ class MyRow2 extends StatelessWidget {
     );
   }
 }
+
+class MyColumn extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+     return Column(children: [
+       Text(
+         'Deliver features faster',
+         textAlign: TextAlign.center,
+       ),
+       Text(
+         'Craft beautiful',
+         textAlign: TextAlign.center,
+       ),
+       Expanded(
+           child: FittedBox(
+             fit: BoxFit.contain,
+             child: FlutterLogo(),
+           )),
+     ],);
+  }
+
+}

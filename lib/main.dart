@@ -417,7 +417,7 @@ void main() {
         appBar: AppBar(
           title: Text('hello'),
         ),
-        body: MyRow2()),
+        body: MyColumn()),
   ));
 }
 
