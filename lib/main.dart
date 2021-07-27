@@ -55,10 +55,13 @@ import 'package:cjj_flutter_ui_study/providerdemo/model.dart';
 import 'package:cjj_flutter_ui_study/screens/cart.dart';
 import 'package:cjj_flutter_ui_study/screens/catalog.dart';
 import 'package:cjj_flutter_ui_study/screens/login.dart';
+import 'package:cjj_flutter_ui_study/ui/txt.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/cart.dart';
 import 'models/cartlog.dart';
+
+import 'package:flutter/rendering.dart';
 
 /**
  * todo 自定义 appbar
@@ -392,16 +395,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-void main() {
-  final counter = CounterModel();
-  final textSize = 48;
+// void main() {
+//   final counter = CounterModel();
+//   final textSize = 48;
+//
+//   runApp(Provider<int>.value(
+//     value: textSize,
+//     child: ChangeNotifierProvider.value(
+//       value: counter,
+//       child: ProviderDemo1(),
+//     ),
+//   ));
+// }
 
-  runApp(Provider<int>.value(
-    value: textSize,
-    child: ChangeNotifierProvider.value(
-      value: counter,
-      child: ProviderDemo1(),
-    ),
+void main() {
+  debugPaintSizeEnabled = true;
+  runApp(MaterialApp(
+    title: 'ok',
+    home: Scaffold(
+        appBar: AppBar(
+          title: Text('hello'),
+        ),
+        body: MyBorder()),
   ));
 }
 
