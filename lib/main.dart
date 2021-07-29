@@ -51,26 +51,24 @@
 // }
 
 import 'package:cjj_flutter_ui_study/common/theme.dart';
-import 'package:cjj_flutter_ui_study/providerdemo/model.dart';
 import 'package:cjj_flutter_ui_study/screens/cart.dart';
 import 'package:cjj_flutter_ui_study/screens/catalog.dart';
 import 'package:cjj_flutter_ui_study/screens/login.dart';
-import 'package:cjj_flutter_ui_study/ui/button.dart';
+import 'package:cjj_flutter_ui_study/ui/card.dart';
 import 'package:cjj_flutter_ui_study/ui/lin.dart';
-import 'package:cjj_flutter_ui_study/ui/move.dart';
-import 'package:cjj_flutter_ui_study/ui/scaff.dart';
-import 'package:cjj_flutter_ui_study/ui/select.dart';
-import 'package:cjj_flutter_ui_study/ui/txt.dart';
+import 'package:cjj_flutter_ui_study/ui/other.dart';
+import 'package:cjj_flutter_ui_study/ui/progress.dart';
+import 'package:cjj_flutter_ui_study/ui/state.dart';
+import 'package:cjj_flutter_ui_study/ui/table.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
+
 import 'models/cart.dart';
 import 'models/cartlog.dart';
 
-import 'package:flutter/rendering.dart';
+// todo 自定义 appbar
 
-/**
- * todo 自定义 appbar
- * */
 class MyAppBar extends StatelessWidget {
   MyAppBar({this.title});
 
@@ -177,9 +175,7 @@ class ShoppingListItem extends StatelessWidget {
   }
 }
 
-/**
- * todo 简单列表使用
- * */
+// todo 简单列表使用
 class ShoppingList extends StatefulWidget {
   final List<Product> produces;
 
@@ -327,7 +323,7 @@ void main() {
         appBar: AppBar(
           title: Text('hello'),
         ),
-        body: MyTime()),
+        body: MyWrap()),
   ));
 }
 

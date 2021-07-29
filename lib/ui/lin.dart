@@ -51,23 +51,28 @@ class MyRow2 extends StatelessWidget {
 class MyColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-     return Column(children: [
-       Text(
-         'Deliver features faster',
-         textAlign: TextAlign.center,
-       ),
-       Text(
-         'Craft beautiful',
-         textAlign: TextAlign.center,
-       ),
-       Expanded(
-           child: FittedBox(
-             fit: BoxFit.contain,
-             child: FlutterLogo(),
-           )),
-       const Image(image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg')),
-       Image.network('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg')
-     ],);
+    return Column(
+      children: [
+        Text(
+          'Deliver features faster',
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          'Craft beautiful',
+          textAlign: TextAlign.center,
+        ),
+        Expanded(
+            child: FittedBox(
+          fit: BoxFit.contain,
+          child: FlutterLogo(),
+        )),
+        const Image(
+            image: NetworkImage(
+                'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg')),
+        Image.network(
+            'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg')
+      ],
+    );
   }
 }
 
@@ -106,4 +111,107 @@ class MyRow3 extends StatelessWidget {
           ),
         ));
   }
- }
+}
+
+class MyWrap extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      alignment: WrapAlignment.end,
+      direction: Axis.vertical,
+      spacing: 8.0,
+      runSpacing: 4.0,
+      children: [
+        Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('AH')),
+          label: const Text('Hamilton'),
+        ),
+        Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('ML')),
+          label: const Text('Lafayette'),
+        ),
+        Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('HM')),
+          label: const Text('Mulligan'),
+        ),
+        Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ),
+        Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('Laurens'),
+        ), Chip(
+          avatar: CircleAvatar(
+              backgroundColor: Colors.blue.shade900, child: const Text('JL')),
+          label: const Text('9'),
+        ),
+      ],
+    );
+  }
+}
