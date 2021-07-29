@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyText extends StatelessWidget {
+class MyText1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,43 +12,6 @@ class MyText extends StatelessWidget {
     );
   }
 }
-
-// class MyRow extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//         title: "dk",
-//         home: Scaffold(
-//           appBar: AppBar(
-//             title: Text('MyRow'),
-//           ),
-//           body: Container(
-//             height: 56.0,
-//             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-//             decoration: BoxDecoration(color: Colors.blue[500]),
-//             child: Row(
-//               children: <Widget>[
-//                 IconButton(onPressed: null, icon: Icon(Icons.menu)),
-//                 Expanded(
-//                     child: Title(
-//                         title: "oooooo",
-//                         child: Text(
-//                           '你好呀',
-//                           style:
-//                               TextStyle(color: Colors.cyanAccent, fontSize: 40),
-//                         ),
-//                         color: Colors.red)), //填充可用空间
-//                 IconButton(
-//                   onPressed: null,
-//                   icon: Icon(Icons.search),
-//                   tooltip: 'Search',
-//                 )
-//               ],
-//             ),
-//           ),
-//         ));
-//   }
-// }
 
 class MyAppBar extends StatelessWidget {
   MyAppBar({this.title});
@@ -178,5 +140,85 @@ class MyBorder extends StatelessWidget {
             style: TextStyle(color: Color(0xFF000000)),
           ),
         ));
+  }
+}
+
+class MyText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Hello,How are you',
+      textAlign: TextAlign.right,
+      overflow: TextOverflow.ellipsis,
+      style: const TextStyle(fontWeight: FontWeight.bold),
+    );
+  }
+}
+
+class MyText2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Text.rich(TextSpan(text: 'Hello', children: <TextSpan>[
+      TextSpan(
+          text: 'beautiful', style: TextStyle(fontStyle: FontStyle.italic)),
+      TextSpan(text: 'world', style: TextStyle(fontWeight: FontWeight.bold)),
+    ]));
+  }
+}
+
+class MyEdit extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(border: OutlineInputBorder()),
+    );
+  }
+}
+
+class MyEdit2 extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyEditState();
+  }
+}
+
+class MyEditState extends State<MyEdit2> {
+  TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: TextField(
+      controller: _controller,
+      onSubmitted: (String value) {
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Thinks'),
+                content:
+                    Text('You type $value,which has length ${value.length}'),
+                actions: <Widget>[
+                  TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text('ok'))
+                ],
+              );
+            });
+      },
+    ));
   }
 }

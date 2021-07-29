@@ -55,7 +55,11 @@ import 'package:cjj_flutter_ui_study/providerdemo/model.dart';
 import 'package:cjj_flutter_ui_study/screens/cart.dart';
 import 'package:cjj_flutter_ui_study/screens/catalog.dart';
 import 'package:cjj_flutter_ui_study/screens/login.dart';
+import 'package:cjj_flutter_ui_study/ui/button.dart';
 import 'package:cjj_flutter_ui_study/ui/lin.dart';
+import 'package:cjj_flutter_ui_study/ui/move.dart';
+import 'package:cjj_flutter_ui_study/ui/scaff.dart';
+import 'package:cjj_flutter_ui_study/ui/select.dart';
 import 'package:cjj_flutter_ui_study/ui/txt.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -108,100 +112,6 @@ class MyScaffold extends StatelessWidget {
           const Expanded(child: Center(child: Text('hello world')))
         ],
       ),
-    );
-  }
-}
-
-// void main() {
-//   runApp(MaterialApp(title: 'My app', home: SafeArea(child: MyScaffold())));
-// }
-
-/**
- * todo 浮动按钮
- * */
-class TutorialHome extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: null,
-          tooltip: 'Navigation menu',
-        ),
-        title: const Text('Example title'),
-        actions: const <Widget>[
-          IconButton(
-              onPressed: null, icon: Icon(Icons.search), tooltip: 'Search')
-        ],
-      ),
-      body: const Center(
-        child: Text('hello world'),
-      ),
-      floatingActionButton: const FloatingActionButton(
-        tooltip: 'Add',
-        child: Icon(Icons.add),
-        onPressed: null,
-      ),
-    );
-  }
-}
-
-/**
- * todo 简单点击事件
- * */
-class MyButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        print("hello world");
-      },
-      child: Container(
-        height: 50.0,
-        padding: const EdgeInsets.all(8.0),
-        margin: const EdgeInsets.symmetric(horizontal: 8.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.0),
-          color: Colors.lightGreen[500],
-        ),
-        child: const Center(
-          child: Text('Engage'),
-        ),
-      ),
-    );
-  }
-}
-
-/**
- *  todo 通用见面更新点击事件
- * */
-
-class Counter extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _CounterState();
-  }
-}
-
-class _CounterState extends State<Counter> {
-  int _counter = 0;
-
-  void _increment() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        ElevatedButton(onPressed: _increment, child: Text('Increment')),
-        SizedBox(width: 16),
-        Text('Count: $_counter')
-      ],
     );
   }
 }
@@ -410,43 +320,21 @@ class MyApp extends StatelessWidget {
 // }
 
 void main() {
-  debugPaintSizeEnabled = true;
+  debugPaintSizeEnabled = false;
   runApp(MaterialApp(
     title: 'ok',
     home: Scaffold(
         appBar: AppBar(
           title: Text('hello'),
         ),
-        body: MyColumn()),
+        body: MyTime()),
   ));
 }
 
-class TabBarDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.directions_car)),
-                Tab(icon: Icon(Icons.directions_transit)),
-                Tab(icon: Icon(Icons.directions_bike)),
-              ],
-            ),
-            title: Text('Tabs Demo'),
-          ),
-          body: TabBarView(
-            children: [
-              Icon(Icons.directions_car),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+// void main() {
+//   debugPaintSizeEnabled = false;
+//   runApp(MaterialApp(title: 'ok',home: MyDrawer()));
+// }
+
+
+
