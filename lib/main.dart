@@ -54,7 +54,9 @@ import 'package:cjj_flutter_ui_study/common/theme.dart';
 import 'package:cjj_flutter_ui_study/screens/cart.dart';
 import 'package:cjj_flutter_ui_study/screens/catalog.dart';
 import 'package:cjj_flutter_ui_study/screens/login.dart';
+import 'package:cjj_flutter_ui_study/ui/animat.dart';
 import 'package:cjj_flutter_ui_study/ui/card.dart';
+import 'package:cjj_flutter_ui_study/ui/edit.dart';
 import 'package:cjj_flutter_ui_study/ui/lin.dart';
 import 'package:cjj_flutter_ui_study/ui/other.dart';
 import 'package:cjj_flutter_ui_study/ui/progress.dart';
@@ -323,7 +325,7 @@ void main() {
         appBar: AppBar(
           title: Text('hello'),
         ),
-        body: MyWrap()),
+        body: MyAnimated2()),
   ));
 }
 
